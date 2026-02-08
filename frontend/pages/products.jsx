@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { productsAPI, categoriesAPI } from '@/utils/api';
-import ProductCard from '@/components/ProductCard';
+import { productsAPI, categoriesAPI } from '../utils/api';
+import ProductCard from '../components/ProductCard';
 import { FiFilter, FiX } from 'react-icons/fi';
 
 export default function ProductsPage() {

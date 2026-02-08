@@ -1,17 +1,17 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useCartStore } from '@/utils/store';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
+import { useCartStore } from '../utils/store';
 import Link from 'next/link';
 import { FiTrash2, FiPlus, FiMinus } from 'react-icons/fi';
-import { ordersAPI } from '@/utils/api';
+import { ordersAPI } from '../utils/api';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
   const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const route = useRouter();
+  const router = useRouter();
 
   const totalPrice = getTotalPrice();
   const finalPrice = totalPrice - discount;
@@ -151,7 +151,7 @@ export default function CartPage() {
 
             {/* Checkout */}
             <button
-              onClick={() => route.push('/checkout')}
+              onClick={() => router.push('/checkout')}
               className="btn-primary w-full py-3 justify-center"
             >
               Оформить заказ
